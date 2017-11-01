@@ -32,4 +32,6 @@ call_get_secret:
 	add esp, 0x08
 
 	pop ebp
+
+	xor eax, eax		; Convention purposes.
 	ret
