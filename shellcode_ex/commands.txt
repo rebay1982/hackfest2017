@@ -1,0 +1,10 @@
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ nasm -f elf -o shellcodeEx2.o shellcodeEx2.s
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ clang -m32 -o shellcodeEx2 shellcodeEx2.o
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ objdump -d -Mintel shellcodeEx | less
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ nasm -f elf -o shellcodeEx2.o shelcodeEx2.s
+nasm: fatal: unable to open input file `shelcodeEx2.s'
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ nasm -f elf -o shellcodeEx2.o shellcodeEx2.s
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ clang -m32 -o shellcodeEx2 shellcodeEx2.o
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ objdump -d -Mintel shellcodeEx2 | less
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ man 2 execve
+rbaydoun@rbaydoun-UX330UAK: ~/git/cse/shellcode_ex$ mkdir ../../hackfest2017/shellcode_ex
