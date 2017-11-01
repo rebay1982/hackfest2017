@@ -1,0 +1,21 @@
+ 0804a02f <get_secret>:
+ 804a02f:       81 7c 24 04 ff 00 00    cmp    DWORD PTR [esp+0x4],0xff
+ 804a036:       00
+ 804a037:       75 2c                   jne    804a065 <get_secret+0x36>
+ 804a039:       81 7c 24 08 00 04 00    cmp    DWORD PTR [esp+0x8],0x400
+ 804a040:       00
+ 804a041:       75 22                   jne    804a065 <get_secret+0x36>
+ 804a043:       81 7c 24 0c 00 08 00    cmp    DWORD PTR [esp+0xc],0x800
+ 804a04a:       00
+ 804a04b:       75 18                   jne    804a065 <get_secret+0x36>
+ 804a04d:       8b 44 24 10             mov    eax,DWORD PTR [esp+0x10]
+ 804a051:       80 38 41                cmp    BYTE PTR [eax],0x41
+ 804a054:       74 06                   je     804a05c <get_secret+0x2d>
+ 804a056:       80 30 41                xor    BYTE PTR [eax],0x41
+ 804a059:       40                      inc    eax
+ 804a05a:       eb f5                   jmp    804a051 <get_secret+0x22>
+ 804a05c:       80 30 41                xor    BYTE PTR [eax],0x41
+ 804a05f:       8b 44 24 10             mov    eax,DWORD PTR [esp+0x10]
+ 804a063:       eb 02                   jmp    804a067 <get_secret+0x38>
+ 804a065:       31 c0                   xor    eax,eax
+ 804a067:       c3                      ret
