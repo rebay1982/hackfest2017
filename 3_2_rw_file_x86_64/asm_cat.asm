@@ -78,6 +78,8 @@ cat:
     ; cmp rax, 0x00
     ; je eof
     add rsp, [st_size]    ; make room on the stack
+    ; to pad stuff, AND the st_size value, the rest will be
+    ; how much you need to add to the stack pointer.
 
     ; Save buffer pointer.
     mov [rsp + 0x10], rax
