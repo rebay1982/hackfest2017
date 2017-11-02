@@ -62,7 +62,7 @@ cat:
     jl eof
 
     ; save the file descriptor
-    mov [rbp + 0x08], rax
+    mov [rbp - 0x08], rax
 
     ; fstat call
     mov rdi, rax  ; set the FD as first param.
@@ -82,12 +82,12 @@ cat:
     ; how much you need to add to the stack pointer.
 
     ; Save buffer pointer.
-    mov [rsp + 0x10], rax
+    mov [rsp - 0x10], rax
 
     ; read
     mov rax, __NR_read
-    mov rdi, [rbp + 0x08]   ; file descriptor
-    mov rsi, [rbp + 0x10]   ;ad *buf
+    mov rdi, [rbp - 0x08]   ; file descriptor
+    mov rsi, [rbp - 0x10]   ;ad *buf
     mov rdx, [st_size]
     syscall
     cmp rax, [st_size]
