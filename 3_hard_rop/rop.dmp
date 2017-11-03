@@ -1,0 +1,56 @@
+080484c0 <main>:
+ 80484c0:       55                      push   ebp
+ 80484c1:       89 e5                   mov    ebp,esp
+ 80484c3:       83 ec 10                sub    esp,0x10
+ 80484c6:       68 28 a0 04 08          push   0x804a028
+ 80484cb:       e8 90 fe ff ff          call   8048360 <printf@plt>
+ 80484d0:       68 68 a0 04 08          push   0x804a068
+ 80484d5:       e8 86 fe ff ff          call   8048360 <printf@plt>
+ 80484da:       68 f3 a0 04 08          push   0x804a0f3
+ 80484df:       e8 7c fe ff ff          call   8048360 <printf@plt>
+ 80484e4:       83 c4 0c                add    esp,0xc
+ 80484e7:       68 07 a1 04 08          push   0x804a107
+ 80484ec:       68 ff a0 04 08          push   0x804a0ff
+ 80484f1:       e8 aa fe ff ff          call   80483a0 <fopen@plt>
+ 80484f6:       83 c4 08                add    esp,0x8
+ 80484f9:       85 c0                   test   eax,eax
+ 80484fb:       74 29                   je     8048526 <done>
+ 80484fd:       89 45 fc                mov    DWORD PTR [ebp-0x4],eax
+ 8048500:       81 ec 00 01 00 00       sub    esp,0x100
+ 8048506:       89 e1                   mov    ecx,esp
+ 8048508:       50                      push   eax
+ 8048509:       68 00 01 00 00          push   0x100
+ 804850e:       6a 01                   push   0x1
+ 8048510:       51                      push   ecx
+ 8048511:       e8 6a fe ff ff          call   8048380 <fread@plt>
+ 8048516:       83 c4 10                add    esp,0x10
+ 8048519:       c3                      ret
+ 804851a:       8b 45 fc                mov    eax,DWORD PTR [ebp-0x4]
+ 804851d:       50                      push   eax
+ 804851e:       e8 4d fe ff ff          call   8048370 <fclose@plt>
+ 8048523:       83 c4 04                add    esp,0x4
+
+08048526 <done>:
+ 8048526:       83 c4 10                add    esp,0x10
+ 8048529:       5d                      pop    ebp
+ 804852a:       c3                      ret
+
+0804852b <printOut>:
+ 804852b:       55                      push   ebp
+ 804852c:       89 e5                   mov    ebp,esp
+ 804852e:       56                      push   esi
+ 804852f:       53                      push   ebx
+ 8048530:       b8 04 00 00 00          mov    eax,0x4
+ 8048535:       8b 1c 24                mov    ebx,DWORD PTR [esp]
+ 8048538:       8b 4c 24 04             mov    ecx,DWORD PTR [esp+0x4]
+ 804853c:       8b 54 24 08             mov    edx,DWORD PTR [esp+0x8]
+ 8048540:       cd 80                   int    0x80
+ 8048542:       5b                      pop    ebx
+ 8048543:       5e                      pop    esi
+ 8048544:       5d                      pop    ebp
+ 8048545:       c3                      ret
+ 8048546:       66 90                   xchg   ax,ax
+ 8048548:       66 90                   xchg   ax,ax
+ 804854a:       66 90                   xchg   ax,ax
+ 804854c:       66 90                   xchg   ax,ax
+ 804854e:       66 90                   xchg   ax,ax

